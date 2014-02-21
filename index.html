@@ -29,7 +29,7 @@
         }
 
         function displayUserTweets(username){
-          if (username === undefined){
+          if (username === ''){
             var tweets = streams.home;
           }
           else {
@@ -47,17 +47,19 @@
           }
         }
 
-        displayUserTweets();
+        var userDisplayed = '';
+        displayUserTweets(userDisplayed);
         displayUsersFollowing();
 
         $("#refresh").on("click", function(){
           $body.html('');
-          displayUserTweets();
+          displayUserTweets(userDisplayed);
         })
 
         $(".main").on("click", ".userhyperlinks", function(){
           $body.html('');
           displayUserTweets($(this).text());
+          userDisplayed = $(this).text();
         })
         
       });
