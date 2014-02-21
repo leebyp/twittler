@@ -11,9 +11,9 @@
       Currently following:
       <ul></ul>
     </div>
-    <div>
+    <div class='main'>
       <div id="refresh"><a href='#'>refresh</a></div>
-      <div class='main'></div>
+      <div class='maintweets'></div>
     </div>
     <script>
 
@@ -36,8 +36,8 @@
           var index = tweets.length-1;
           while(index >= 0){
             var tweet = tweets[index];
-            var $tweet = $('<div></div>');
-            var $user = $('<div><a href="#" class=userhyperlinks>'+tweet.user+'</a> '+tweet.created_at.toDateString()+'</div>');
+            var $tweet = $('<div class="tweetmessage"></div>');
+            var $user = $('<div class="tweetinfo"><a href="#" class=userhyperlinks>'+tweet.user+'</a> '+tweet.created_at.toDateString()+'</div>');
             $tweet.text('@' + tweet.user + ': ' + tweet.message);
             $user.prependTo($tweet);
             $tweet.appendTo($body);
@@ -54,7 +54,7 @@
           return $body.html('');
         }
         
-        var $body = $('.main');
+        var $body = $('.maintweets');
         clearBody();
         var userDisplayed;
         displayUsersFollowing();
@@ -65,7 +65,7 @@
           displayUserTweets(userDisplayed);
         })
 
-        $(".main").on("click", ".userhyperlinks", function(){
+        $(".maintweets").on("click", ".userhyperlinks", function(){
           clearBody();
           userDisplayed = $(this).text();
           displayUserTweets(userDisplayed);
