@@ -15,11 +15,17 @@
       $(document).ready(function(){
         var $body = $('.main');
         $body.html('');
-        
-        function displayAllTweets(){
-          var index = streams.home.length - 1;
+
+        function displayUserTweets(username){
+          if (username === undefined){
+            var tweets = streams.home;
+          }
+          else {
+            var tweets = streams.users.username;
+          }
+          var index = tweets.length-1;
           while(index >= 0){
-            var tweet = streams.home[index];
+            var tweet = tweets[index];
             var $tweet = $('<div></div>');
             $tweet.text('@' + tweet.user + " " + tweet.created_at + ': ' + tweet.message);
             $tweet.appendTo($body);
@@ -27,11 +33,11 @@
           }
         }
 
-        displayAllTweets();
+        displayUserTweets();
         
         $("#refresh").on("click", function(){
           $body.html('');
-          displayAllTweets();
+          displayUserTweets();
         })
         
       });
