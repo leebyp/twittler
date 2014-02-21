@@ -27,7 +27,9 @@
           while(index >= 0){
             var tweet = tweets[index];
             var $tweet = $('<div></div>');
-            $tweet.text('@' + tweet.user + " " + tweet.created_at + ': ' + tweet.message);
+            var $user = $('<div><a href=# class=user>'+tweet.user+'</a> '+tweet.created_at.toDateString()+'</div>');
+            $tweet.text('@' + tweet.user + ': ' + tweet.message);
+            $user.prependTo($tweet);
             $tweet.appendTo($body);
             index -= 1;
           }
