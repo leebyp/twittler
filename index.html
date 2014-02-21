@@ -21,13 +21,13 @@
             var tweets = streams.home;
           }
           else {
-            var tweets = streams.users.username;
+            var tweets = streams.users[username];
           }
           var index = tweets.length-1;
           while(index >= 0){
             var tweet = tweets[index];
             var $tweet = $('<div></div>');
-            var $user = $('<div><a href=# class=user>'+tweet.user+'</a> '+tweet.created_at.toDateString()+'</div>');
+            var $user = $('<div><a href=# class=userhyperlinks>'+tweet.user+'</a> '+tweet.created_at.toDateString()+'</div>');
             $tweet.text('@' + tweet.user + ': ' + tweet.message);
             $user.prependTo($tweet);
             $tweet.appendTo($body);
@@ -40,6 +40,11 @@
         $("#refresh").on("click", function(){
           $body.html('');
           displayUserTweets();
+        })
+
+        $(".main").on("click", ".userhyperlinks", function(){
+          $body.html('');
+          displayUserTweets($(this).text());
         })
         
       });
