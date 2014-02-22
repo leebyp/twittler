@@ -63,7 +63,8 @@
         displayUsersFollowing();
         displayHomePage();
 
-        $("#refresh").on("click", function(){
+        $("#refresh").on("click", function(event){
+          event.preventDefault();
           clearBody();
           displayUserTweets(userDisplayed);
         })
