@@ -73,18 +73,19 @@ body {
 .maintweets {
 	margin: 20px 0px;
 	border: 5px solid #ccc;
-	padding: 20px 10px;
 	background-color: #FFFFFF;
 	border-radius: 20px;
 }
 
 .tweetmessage {
-	border: 2px solid #ccc;
-	margin: 10px 0px;
-	font-size: 13pt;
+	border: 1px solid #ccc;
+	padding: 15px 15px;
+}
+
+.tweetinfo a {
+	font-size: 11pt;
 }
 
 .tweetinfo {
-	border: 2px solid #ccc;
-	font-size: 11pt;
+	font-size: 10pt;
 }
