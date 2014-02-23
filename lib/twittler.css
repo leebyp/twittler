@@ -114,3 +114,35 @@ body {
 #changenameform{
 	display: none;
 }
+
+.newtweet {
+	height: 80px;
+	border: 5px solid #ccc;
+	background-color: #FFFFFF;
+	border-radius: 20px;
+	margin: 20px 0px;
+	padding: 20px 10px;
+}
+
+#newtweetmessage {
+	height: 100%;
+	width: 75%;
+	font-size: 10pt;
+	font-color: #BBBDBF;
+	display: inline-block;
+	margin-left: 20px;
+	font-style: italic;
+}
+
+#posttweet {
+	display: inline-block;
+	background-color: #8AB5ED;
+	color: white;
+	border-radius: 5px;
+	padding: 10px 20px;
+	float: right;
+	position: relative;
+	right: 15px;
+	top: 20px;
+	font-size: 10pt;
+}
