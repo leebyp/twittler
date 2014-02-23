@@ -24,7 +24,7 @@
         
         function displayUsersFollowing(){
           for (var i=0; i<users.length; i++){
-            var $user = $('<li>@'+users[i]+'</li>');
+            var $user = $('<li>@<a class="userhyperlinks">'+users[i]+'</a></li>');
             $user.appendTo(".usersfollowing ul"); 
           }
         }
@@ -78,6 +78,12 @@
         $("#homebutton").on("click", function(){
           clearBody();
           userDisplayed = '';
+          displayUserTweets(userDisplayed);
+        })
+
+        $(".usersfollowing li").on("click", function(){
+          clearBody();
+          userDisplayed = $(this).children(".userhyperlinks").text();
           displayUserTweets(userDisplayed);
         })
 
