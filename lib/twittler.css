@@ -102,11 +102,13 @@ body {
 
 #name {
 	display: inline-block;
+	overflow: hidden;
 }
 
 #changename {
 	font-size: 10pt;
 	float: right;
+	display: inline-block;
 }
 
 #changenameform{

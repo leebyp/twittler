@@ -13,7 +13,7 @@
       <div class='usernamedetails'>
         <div id='name'>visitor</div>
         <a id='changename' href='#'>change name</a>
-        <div id='changenameform'><input type='text'><button>submit</button></div> 
+        <div id='changenameform'><input type='text'><button disabled=true>submit</button></div> 
       </div>
       <div class='usersfollowing'>
         Currently following:
@@ -64,6 +64,8 @@
         }
 
         function updateVisitorName(newname){
+          $('#changenameform input').val('');
+          $('#changenameform').slideToggle();
           $('#name').text(newname);
         }
         
@@ -96,6 +98,27 @@
           clearBody();
           userDisplayed = $(this).children(".userhyperlinks").text();
           displayUserTweets(userDisplayed);
+        })
+
+        $('#changename').on('click', function(){
+          $('#changenameform').slideToggle();
+        })
+
+        $('#changenameform input').on('keyup', function(x){
+          if ($(this).val().length !== 0){
+            $(this).siblings('button').attr('disabled', false);
+            if (x.keyCode === 13){
+              updateVisitorName($(this).val());
+            }
+          }
+          else {
+            $(this).siblings('button').attr('disabled', true);           
+          }
+        })
+
+        $('#changenameform').on('click', 'button', function(){
+          $(this).attr('disabled', true);
+          updateVisitorName($(this).siblings('input').val());
         })
 
       });
