@@ -1,14 +1,18 @@
+html {
+	overflow-x: hidden;
+}
+
 body {
 	background-color: #AFDBFA;
 	margin: 75px 100px;
-	overflow: scroll;
+	overflow-x: hidden;
 }
 
 .sidebar{
-	width: 400px;
+	width: 350px;
 	height: 100%;
-	display: inline-block;
 	border: 2px solid #ccc;
+	position: fixed;
 }
 
 #homebutton{
@@ -40,15 +44,15 @@ body {
 }
 
 .main {
-	float: right;
 	border: 2px solid #ccc;
 	width: 600px;
-	display: inline-block;
+	position: relative;
+	left: 450px;
 }
 
 #refresh {
 	border: 2px solid #ccc;
-	padding: 15px 15px;
+	padding: 15px;
 	text-align: center;
 }
 
