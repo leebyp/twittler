@@ -62,10 +62,10 @@ body {
 
 .refresh {
 	border: 2px solid #ccc;
-	padding: 15px;
 	text-align: center;
 	text-transform: uppercase;
 	font-size: 15px;	
+	cursor: pointer;
 }
 
 .maintweets {

@@ -15,7 +15,7 @@
       </div>
     </div>
     <div class='main'>
-      <div class="refresh"><a id="refreshbutton" href='#'>refresh</a></div>
+      <div class="refresh"><p id="refreshbutton">refresh</p></div>
       <div class='maintweets'></div>
     </div>
     <script>
@@ -75,7 +75,7 @@
           displayUserTweets(userDisplayed);
         })
         
-        $(".home").on("click", function(){
+        $("#homebutton").on("click", function(){
           clearBody();
           userDisplayed = '';
           displayUserTweets(userDisplayed);
