@@ -15,7 +15,7 @@
       </div>
     </div>
     <div class='main'>
-      <div id="refresh"><a href='#'>refresh</a></div>
+      <div class="refresh"><a id="refreshbutton" href='#'>refresh</a></div>
       <div class='maintweets'></div>
     </div>
     <script>
@@ -63,7 +63,7 @@
         displayUsersFollowing();
         displayHomePage();
 
-        $("#refresh").on("click", function(event){
+        $(".refresh").on("click", function(event){
           event.preventDefault();
           clearBody();
           displayUserTweets(userDisplayed);
