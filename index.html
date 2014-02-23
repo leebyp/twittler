@@ -129,16 +129,16 @@
         })
 
         $('.newtweet').on('focus', 'textarea', function(){
-          if ($(this).text()==='Enter a new tweet to send (max 140 characters).'){
-            $(this).text('');
+          if ($(this).val()==='Enter a new tweet to send (max 140 characters).'){
+            $(this).val('');
           }
         })
 
         $('.newtweet').on('click', '#posttweet', function(){
-          if( $(this).siblings('textarea').text() !== 'Enter a new tweet to send (max 140 characters).'){
-            var newmessage = $('newtweetmessage').text();
+          if( $(this).siblings('textarea').val() !== 'Enter a new tweet to send (max 140 characters).'){
+            var newmessage = $('#newtweetmessage').val();
             writeTweet(newmessage);
-            $('#newtweetmessage').text('Enter a new tweet to send (max 140 characters).');
+            $('#newtweetmessage').val('Enter a new tweet to send (max 140 characters).');
             $(".refresh").trigger("click");
           }
         })
