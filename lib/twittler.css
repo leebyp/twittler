@@ -90,3 +90,25 @@ body {
 .tweetinfo {
 	font-size: 10pt;
 }
+
+.usernamedetails {
+	margin: 20px 0px;
+	width: 200px;
+	padding: 10px 30px;
+	border: 5px solid #ccc;
+	background-color: #FFFFFF;
+	border-radius: 20px;
+}
+
+#name {
+	display: inline-block;
+}
+
+#changename {
+	font-size: 10pt;
+	float: right;
+}
+
+#changenameform{
+	display: none;
+}

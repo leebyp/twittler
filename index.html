@@ -10,6 +10,11 @@
   <body>
     <div class='sidebar'>
       <div class='home'><a id='homebutton' href='#'>twittler!</a></div>
+      <div class='usernamedetails'>
+        <div id='name'>visitor</div>
+        <a id='changename' href='#'>change name</a>
+        <div id='changenameform'><input type='text'><button>submit</button></div> 
+      </div>
       <div class='usersfollowing'>
         Currently following:
         <ul></ul>
@@ -57,10 +62,15 @@
         function clearBody(){
           return $body.html('');
         }
+
+        function updateVisitorName(newname){
+          $('#name').text(newname);
+        }
         
         var $body = $('.maintweets');
         clearBody();
         var userDisplayed;
+        var visitor = 'visitor';
         displayUsersFollowing();
         displayHomePage();
 
