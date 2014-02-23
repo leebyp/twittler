@@ -22,7 +22,10 @@
     </div>
     <div class='main'>
       <div class="refresh"><p id="refreshbutton">refresh</p></div>
-      <div class='newtweet'><textarea maxlength='140' id='newtweetmessage'>Enter a new tweet to send (max 140 characters).</textarea><div id='posttweet'>POST</div></div>
+      <div class='newtweet'>
+        <textarea maxlength='140' id='newtweetmessage'>Enter a new tweet to send (max 140 characters).</textarea>
+        <div id='posttweet'>POST</div>
+      </div>
       <div class='maintweets'></div>
     </div>
     <script>
@@ -68,12 +71,15 @@
           $('#changenameform input').val('');
           $('#changenameform').slideToggle();
           $('#name').text(newname);
+          visitor = newname;
+          streams.users[newname] = [];
         }
         
         var $body = $('.maintweets');
         clearBody();
         var userDisplayed;
-        var visitor = 'visitor';
+        window.visitor = 'visitor';
+        streams.users.visitor = [];
         displayUsersFollowing();
         displayHomePage();
 
@@ -120,6 +126,21 @@
         $('#changenameform').on('click', 'button', function(){
           $(this).attr('disabled', true);
           updateVisitorName($(this).siblings('input').val());
+        })
+
+        $('.newtweet').on('focus', 'textarea', function(){
+          if ($(this).text()==='Enter a new tweet to send (max 140 characters).'){
+            $(this).text('');
+          }
+        })
+
+        $('.newtweet').on('click', '#posttweet', function(){
+          if( $(this).siblings('textarea').text() !== 'Enter a new tweet to send (max 140 characters).'){
+            var newmessage = $('newtweetmessage').text();
+            writeTweet(newmessage);
+            $('#newtweetmessage').text('Enter a new tweet to send (max 140 characters).');
+            $(".refresh").trigger("click");
+          }
         })
 
       });

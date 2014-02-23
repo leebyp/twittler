@@ -131,7 +131,6 @@ body {
 	font-color: #BBBDBF;
 	display: inline-block;
 	margin-left: 20px;
-	font-style: italic;
 }
 
 #posttweet {
@@ -145,4 +144,5 @@ body {
 	right: 15px;
 	top: 20px;
 	font-size: 10pt;
+	cursor: pointer;
 }
