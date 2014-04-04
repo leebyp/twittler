@@ -59,6 +59,7 @@
         }
 
         function displayHomePage(){
+          clearBody();
           userDisplayed = '';
           displayUserTweets(userDisplayed);
         }
@@ -72,11 +73,12 @@
           $('#changenameform').slideToggle();
           $('#name').text(newname);
           visitor = newname;
-          streams.users[newname] = [];
+          if (streams.users[newname] === undefined){
+            streams.users[newname] = [];
+          }
         }
         
         var $body = $('.maintweets');
-        clearBody();
         var userDisplayed;
         window.visitor = 'visitor';
         streams.users.visitor = [];
@@ -96,9 +98,7 @@
         })
         
         $("#homebutton").on("click", function(){
-          clearBody();
-          userDisplayed = '';
-          displayUserTweets(userDisplayed);
+          displayHomePage();
         })
 
         $(".usersfollowing li").on("click", function(){
@@ -140,6 +140,9 @@
             writeTweet(newmessage);
             $('#newtweetmessage').val('Enter a new tweet to send (max 140 characters).');
             $(".refresh").trigger("click");
+            if (userDisplayed !== visitor){
+              displayHomePage();
+            }
           }
         })
 
